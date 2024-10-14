@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>All books</title>
+</head>
+
+<body>
+    <header>
+        <h1>All books</h1>
+        <%- include("./includes/nav.ejs")%>
+    </header>
+    <main>
+        <div class="main-container">
+            <% books.forEach((movie)=> { %>
+                <div class="books-container">
+                    <h2>
+                        <%= book.title %>
+                    </h2>
+                    <p>
+                        <%= book.author %>
+                    </p>
+                    <p>
+                        <%= book.genre %>, <%= book.year %>
+                    </p>
+                    <img src="<%= book.img %>" alt="<%= book.title %>">
+                    <button>
+                        <a href="/api/books/<%= book.id %>">Details</a>
+                    </button>
+                    <button>
+                        <a href="/api/update-form/<%= book.id %>">Update</a>
+                    </button>
+                    <button>
+                        <a href="/api/delete/<%= movie.id %>">Delete</a>
+                    </button>
+                </div>
+            </div>
+                <% }) %>
+    </main>
+</body>
+
+</html>
