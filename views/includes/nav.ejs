@@ -1,8 +1,12 @@
-<nav>
+<nav class="nav">
     <ul>
         <li><a href="/api/books">Home</a></li>
-        <li><a href="/api/login">Login</a></li>
-        <li><a href="/api/register">Register</a></li>
-        <li><a href="/api/add-book">Add a book</a></li>
+        <% if (token) { %>
+            <li><a href="/api/add-book">Add a book</a></li>
+            <li><a href="/api/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/api/login">Login</a></li>
+            <li><a href="/api/register">Register</a></li>
+        <% } %>
     </ul>
 </nav>

@@ -25,7 +25,11 @@ const booksControllers = {
         const result = await query(sqlStr, params);
 
         if (result.length > 0) {
-            res.status(200).render('book');
+            // Pass the first book object to the template
+            res.status(200).render('book', {
+                book: result[0],
+                token: req.cookies.token
+            });
         } else {
             res.status(404).render('404', {
                 title: 'Error',

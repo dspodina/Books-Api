@@ -23,19 +23,21 @@
                     <p class="author">
                         <%= book.author %>
                     </p>
-                    <p>
+                    <p>$
                        <%= book.price %>
                     </p>
                     <img src="<%= book.image %>" alt="<%= book.title %>">
-                    <button>
+                    <button class="btn-link">
                         <a href="/api/books/<%= book.id %>">Details</a>
                     </button>
-                    <button>
-                        <a href="/api/update-book/<%= book.id %>">Update</a>
-                    </button>
-                    <button>
-                        <a href="/api/delete/<%= book.id %>">Delete</a>
-                    </button>
+                    <% if (token) { %>
+                        <button class="btn-link">
+                            <a href="/api/update-book/<%= book.id %>">Update</a>
+                        </button>
+                        <button class="btn-link">
+                            <a href="/api/delete/<%= book.id %>">Delete</a>
+                        </button>
+                    <% } %>
                 </div>
             </div>
                 <% }) %>

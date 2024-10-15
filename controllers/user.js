@@ -8,7 +8,6 @@ import matchPasswords from '../utils/matchPasswords.js';
 import validateEmail from '../utils/validateEmail.js';
 import validatePassword from '../utils/validatePassword.js';
 
-
 const userControllers = {
     getRegisterForm: (req, res) => {
         res.status(200).render('register-form');
@@ -84,16 +83,14 @@ const userControllers = {
             // create token
             const token = jwt.sign({ email }, process.env.TOKEN_SECRET);
 
-             // set cookie
-        if (token) {
-            res.cookie('token', token, {
-                httpOnly: true
-            });
-            res.status(302).redirect('/api/books');
-        }
+            // set cookie
+            if (token) {
+                res.cookie('token', token, {
+                    httpOnly: true
+                });
+                res.status(302).redirect('/api/books');
+            }
         });
-
-       
     },
     logout: (req, res) => {
         res.clearCookie('token');
