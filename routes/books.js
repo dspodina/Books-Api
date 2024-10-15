@@ -16,7 +16,7 @@ const {
 
 // routes
 router.get('/books', getAllBooks);
-router.get('/book/:id', getBookById);
+router.get('/books/:id', getBookById);
 router.get('/add-book', verifyToken, addBookForm);
 router.post('/add-book', verifyToken, addBook);
 router.get('/update-book/:id', updateBookForm);

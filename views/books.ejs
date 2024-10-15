@@ -11,30 +11,30 @@
 <body>
     <header>
         <h1>All books</h1>
-        <%- include("./includes/nav.ejs")%>
+        <%- include("./includes/nav.ejs", {token : token})%>
     </header>
     <main>
         <div class="main-container">
-            <% books.forEach((movie)=> { %>
+            <% books.forEach((book)=> { %>
                 <div class="books-container">
-                    <h2>
+                    <h2 class="title">
                         <%= book.title %>
                     </h2>
-                    <p>
+                    <p class="author">
                         <%= book.author %>
                     </p>
                     <p>
-                        <%= book.genre %>, <%= book.year %>
+                       <%= book.price %>
                     </p>
-                    <img src="<%= book.img %>" alt="<%= book.title %>">
+                    <img src="<%= book.image %>" alt="<%= book.title %>">
                     <button>
                         <a href="/api/books/<%= book.id %>">Details</a>
                     </button>
                     <button>
-                        <a href="/api/update-form/<%= book.id %>">Update</a>
+                        <a href="/api/update-book/<%= book.id %>">Update</a>
                     </button>
                     <button>
-                        <a href="/api/delete/<%= movie.id %>">Delete</a>
+                        <a href="/api/delete/<%= book.id %>">Delete</a>
                     </button>
                 </div>
             </div>
